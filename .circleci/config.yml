@@ -6,7 +6,7 @@ jobs:
       - image: openjdk:11
     steps:
       - run:
-          name: Get sbt
+          name: Get sbt 
           command: |
             apt update && apt install -y curl
             curl -L -o sbt-1.4.2.deb https://dl.bintray.com/sbt/debian/sbt-1.4.2.deb
