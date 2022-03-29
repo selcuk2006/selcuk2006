@@ -1,21 +1,22 @@
 version: 2.1
+
 jobs:
   build:
     docker:
-      - image: openjdk:11       
-    steps:      
+      - image: openjdk:11
+    steps:
       - run:
           name: Get sbt
           command: |
-          apt update && apt install -y curl
-            curl -L -o sbt-$SBT_VERSION.deb https://dl.bintray.com/sbt/debian/sbt-1.4.2.deb
-            dpkg -i sbt-$SBT_VERSION.deb
-            rm sbt-$SBT_VERSION.deb
+            apt update && apt install -y curl
+            curl -L -o sbt-1.4.2.deb https://dl.bintray.com/sbt/debian/sbt-1.4.2.deb
+            dpkg -i sbt-1.4.2.deb
+            rm sbt-1.4.2.deb
       - checkout
       - run:
           name: Clean Build
           command: sbt clean compile
 workflows:
-  build-workflow:  
+  build-workflow:
     jobs:
       - build
